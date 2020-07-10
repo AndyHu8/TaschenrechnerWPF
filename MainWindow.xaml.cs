@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
 
 namespace TaschenrechnerWPF
 {
@@ -19,6 +22,7 @@ namespace TaschenrechnerWPF
 
         private void ZifferAnhängen(int z)
         {
+
             if (zahleneingabeLäuft) //Wenn zahleneingabeLäuft läuft
             {
                 aktuellerWert = aktuellerWert * 10 + z; //hänge weiter Zahlen hinten ran
@@ -137,6 +141,62 @@ namespace TaschenrechnerWPF
             zahleneingabeLäuft = true;
             letzteRechenoperation = '=';
             textblockAusgabe.Text = aktuellerWert.ToString();
+        }
+
+        private void ButtonBin_Click(object sender, RoutedEventArgs e)
+        {
+            List<int> binList = new List<int>();
+            var rest = 0;
+            var akt = 0;
+
+            while (aktuellerWert > 0)
+            {
+                rest = aktuellerWert % 2; //Rest
+                akt = aktuellerWert / 2; //Aktueller Wert
+
+                binList.Add(rest);
+                aktuellerWert = akt;
+            }
+
+            textblockAusgabe.Text = string.Empty;
+            for (int i = binList.Count - 1; i >= 0; i--)
+            {
+                textblockAusgabe.Text = textblockAusgabe.Text + binList[i].ToString();
+            }
+        }
+
+        private void ButtonDec_Click(object sender, RoutedEventArgs e)
+        {
+            int[] Array = IntToIntArray(aktuellerWert);
+            double Ergebnis = 0;
+            double ZwischenErgebnis = 0;
+            int Exponent = 0;
+
+
+            for (int i = Array.Length - 1; i > -1; i--)
+            {
+                ZwischenErgebnis = Array[i] * (Math.Pow(2, Exponent));
+                if (Array[i] != 0)
+                {
+                    Ergebnis = Ergebnis + ZwischenErgebnis;
+                }
+                Exponent++;
+            }
+            textblockAusgabe.Text = Ergebnis.ToString();
+
+        }
+
+        public static int[] IntToIntArray(int num)
+        {
+            List<int> zahlen = new List<int>();
+
+            for (; num != 0; num /= 10)
+                zahlen.Add(num % 10); //Gibt nur den Rest aus
+
+            int[] array = zahlen.ToArray();
+            Array.Reverse(array);
+
+            return array;
         }
     }
 }

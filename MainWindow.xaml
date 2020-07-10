@@ -22,7 +22,9 @@
             <ColumnDefinition Width="1*"/>
             <!--* = Verhältnis zum anderen-->
         </Grid.ColumnDefinitions>
-        <Button Content="AC" Grid.Column="0" Grid.Row="1" Click="ButtonAC_Click" FontSize="25" Background="#525252" Foreground="White" Grid.ColumnSpan="3"/>
+        <Button Content="AC" Grid.Column="0" Grid.Row="1" Click="ButtonAC_Click" FontSize="25" Background="#525252" Foreground="White"/>
+        <Button Content="Bin" Grid.Column="1" Grid.Row="1" Click="ButtonBin_Click" FontSize="30" Background="#525252" Foreground="White"/>
+        <Button Content="Dec" Grid.Column="2" Grid.Row="1" Click="ButtonDec_Click" FontSize="30" Background="#525252" Foreground="White"/>
         <Button Content="7" Grid.Column="0" Grid.Row="2" Click="Button7_Click" FontSize="30" Background="#525252" Foreground="White"/>
         <Button Content="8" Grid.Column="1" Grid.Row="2" Click="Button8_Click" FontSize="30" Background="#525252" Foreground="White"/>
         <Button Content="9" Grid.Column="2" Grid.Row="2" Click="Button9_Click" FontSize="30" Background="#525252" Foreground="White"/>
@@ -32,9 +34,8 @@
         <Button Content="1" Grid.Column="0" Grid.Row="4" Click="Button1_Click" FontSize="30" Background="#525252" Foreground="White"/>
         <Button Content="2" Grid.Column="1" Grid.Row="4" Click="Button2_Click" FontSize="30" Background="#525252" Foreground="White"/>
         <Button Content="3" Grid.Column="2" Grid.Row="4" Click="Button3_Click" FontSize="30" Background="#525252" Foreground="White"/>
-        <Button Content="0" Grid.Column="0" Grid.Row="5" Click="Button0_Click" FontSize="30" Background="#525252" Foreground="White" Grid.ColumnSpan="3"/>
-        <TextBlock x:Name="textblockAusgabe"  HorizontalAlignment="right" Margin="0,0,10,0" Grid.Column="0" Text="0" Grid.ColumnSpan="4" FontSize="50" Foreground="White"/>
-        <!--Geht über 2 Zeilen-->
+        <Button Content="0" Grid.Column="0" Grid.Row="5" Click="Button0_Click" FontSize="30" Background="#525252" Foreground="White" Grid.ColumnSpan="3"/>        <TextBlock x:Name="textblockAusgabe"  HorizontalAlignment="right" Margin="0,0,10,0" Grid.Column="0" Text="0" Grid.ColumnSpan="4" FontSize="50" Foreground="White"/>
+        <!--Geht über 3 Zeilen-->
         <Button Content="+" Grid.Column="3" Grid.Row="4" Click="ButtonPlus_Click" FontSize="40" Foreground="White" Background="Orange"/>
         <Button Content="-" Grid.Column="3" Grid.Row="3" Click="ButtonMinus_Click" FontSize="40" Foreground="White" Background="Orange"/>
         <Button Content="*" Grid.Column="3" Grid.Row="2" Click="ButtonMal_Click" FontSize="45" Foreground="White" Background="Orange"/>
